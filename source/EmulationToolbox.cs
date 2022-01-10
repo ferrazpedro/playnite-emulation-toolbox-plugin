@@ -17,6 +17,10 @@ namespace EmulationToolbox
 
         private EmulationToolboxSettingsViewModel settings { get; set; }
 
+        public static string PluginName = "Emulation Toolbox";
+
+        public static IPlayniteAPI playniteAPI;
+
         public override Guid Id { get; } = Guid.Parse("eb3ccf5d-971a-41a6-aefd-aae9455e6de4");
 
         public EmulationToolbox(IPlayniteAPI api) : base(api)
