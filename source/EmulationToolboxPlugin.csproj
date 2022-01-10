@@ -56,8 +56,7 @@
       <DependentUpon>EmulationToolboxSettingsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\Library\RomsNameCleanup.cs" />
-    <Compile Include="Services\Library\EmulatorProfileChanger.cs" />
+    <Compile Include="Services\Library\EmulationTextChanges.cs" />
     <Compile Include="Services\UI\UIService.cs" />
     <Compile Include="Views\EmulationProfileChangerView.xaml.cs">
       <DependentUpon>EmulationProfileChangerView.xaml</DependentUpon>

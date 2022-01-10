@@ -16,15 +16,21 @@ namespace EmulationToolbox.Configuration
             {
 				new MainMenuItem
 			    {
-				    MenuSection = "@" + EmulationToolbox.PluginName,
-				    Description = "Change the Emulator Profile for the Selected Games",
-				    Action = (args) => EmulatorProfileChanger.chooseEmulatorProfile()
+				    MenuSection = "@" + EmulationToolbox.PluginName + "|Text",
+				    Description = "Change the Play Action name for the Selected Games",
+				    Action = (args) => EmulationTextChanges.changeGamePlayActionName()
 			    },
 				new MainMenuItem
 				{
-					MenuSection = "@" + EmulationToolbox.PluginName,
-					Description = "Cleanup the name of the ROMs associated to the Selected Games",
-					Action = (args) => RomsNameCleanup.cleanupRomNames()
+					MenuSection = "@" + EmulationToolbox.PluginName + "|Text",
+					Description = "Cleanup the name of the ROMs entries associated to the Selected Games",
+					Action = (args) => EmulationTextChanges.cleanupRomNames()
+				},
+				new MainMenuItem
+				{
+					MenuSection = "@" + EmulationToolbox.PluginName + "|Text",
+					Description = "Changes all hyphen (-) to colons (:) in the Selected Games names",
+					Action = (args) => EmulationTextChanges.changeHyphensToColon()
 				},
 			};
         }

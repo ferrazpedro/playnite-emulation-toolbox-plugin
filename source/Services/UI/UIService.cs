@@ -10,7 +10,7 @@ namespace EmulationToolbox.Services.UI
 {
     internal class UIService
     {
-        public static GlobalProgressResult showProgress(string text, bool cancelable, bool indeterminate, System.Action<GlobalProgressActionArgs> f)
+        public static GlobalProgressResult showProgress(string text, bool cancelable, bool indeterminate, Action<GlobalProgressActionArgs> f)
         {
             GlobalProgressOptions options = new GlobalProgressOptions(text, cancelable);
             options.IsIndeterminate = indeterminate;

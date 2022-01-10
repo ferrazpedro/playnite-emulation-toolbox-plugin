@@ -1,4 +1,5 @@
-﻿using Playnite.SDK;
+﻿using EmulationToolbox.Configuration;
+using Playnite.SDK;
 using Playnite.SDK.Events;
 using Playnite.SDK.Models;
 using Playnite.SDK.Plugins;
@@ -25,11 +26,17 @@ namespace EmulationToolbox
 
         public EmulationToolbox(IPlayniteAPI api) : base(api)
         {
+            playniteAPI = api;
             settings = new EmulationToolboxSettingsViewModel(this);
             Properties = new GenericPluginProperties
             {
-                HasSettings = true
+                HasSettings = false
             };
+        }
+
+        public override IEnumerable<MainMenuItem> GetMainMenuItems(GetMainMenuItemsArgs _args)
+        {
+            return MainMenu.getPluginMenuItems();
         }
 
         public override void OnGameInstalled(OnGameInstalledEventArgs args)
