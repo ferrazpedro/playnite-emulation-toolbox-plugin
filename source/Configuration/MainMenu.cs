@@ -1,4 +1,5 @@
-﻿using Playnite.SDK.Plugins;
+﻿using EmulationToolbox.Services.Library;
+using Playnite.SDK.Plugins;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +18,15 @@ namespace EmulationToolbox.Configuration
 			    {
 				    MenuSection = "@" + EmulationToolbox.PluginName,
 				    Description = "Change the Emulator Profile for the Selected Games",
-				    Action = (args) =>
+				    Action = (args) => EmulatorProfileChanger.chooseEmulatorProfile()
 			    },
-            };
+				new MainMenuItem
+				{
+					MenuSection = "@" + EmulationToolbox.PluginName,
+					Description = "Cleanup the name of the ROMs associated to the Selected Games",
+					Action = (args) => RomsNameCleanup.cleanupRomNames()
+				},
+			};
         }
     }
 }
