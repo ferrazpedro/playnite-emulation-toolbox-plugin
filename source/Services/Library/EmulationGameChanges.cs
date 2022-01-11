@@ -1,5 +1,6 @@
 ﻿using Playnite.SDK;
 using Playnite.SDK.Models;
+using Playnite.SDK.Plugins;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,14 +12,14 @@ namespace EmulationToolbox.Services.Library
 {
     internal class EmulationGameChanges
     {
-        public static void mergeEmulatedGames()
+        public static void mergeEmulatedGames(GameMenuItemActionArgs args)
         {
             int processedCount = 0;
             int renamedCount = 0;
             GlobalProgressResult progressResult = UI.UIService.showProgress("Merging the associated ROMs of the selected emulated Games", false, true, (progressAction) =>
             {
 
-                List<Game> selectedGames = EmulationToolbox.playniteAPI.MainView.SelectedGames.ToList();
+                List<Game> selectedGames = args.Games.ToList();
 
                 Game mergedGame = selectedGames.FirstOrDefault();
 

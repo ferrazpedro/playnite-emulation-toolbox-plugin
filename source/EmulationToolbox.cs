@@ -34,9 +34,9 @@ namespace EmulationToolbox
             };
         }
 
-        public override IEnumerable<MainMenuItem> GetMainMenuItems(GetMainMenuItemsArgs _args)
+        public override IEnumerable<GameMenuItem> GetGameMenuItems(GetGameMenuItemsArgs _args)
         {
-            return MainMenu.getPluginMenuItems();
+            return GameMenu.getPluginMenuItems();
         }
 
         public override void OnGameInstalled(OnGameInstalledEventArgs args)
