@@ -15,7 +15,7 @@ namespace EmulationToolbox.Services.Library
         {
             int processedCount = 0;
             int renamedCount = 0;
-            GlobalProgressResult progressResult = UI.UIService.showProgress("Merging the associated ROMs of the emulated Games", false, true, (progressAction) =>
+            GlobalProgressResult progressResult = UI.UIService.showProgress("Merging the associated ROMs of the selected emulated Games", false, true, (progressAction) =>
             {
 
                 List<Game> selectedGames = EmulationToolbox.playniteAPI.MainView.SelectedGames.ToList();
@@ -31,6 +31,9 @@ namespace EmulationToolbox.Services.Library
                         if (game.Roms.Any())
                         {
                             mergedGame.Roms.Concat(game.Roms);
+
+                            EmulationToolbox.playniteAPI.Database.Games.Remove(game.Id);
+
                             renamedCount++;
                         }
 
@@ -39,7 +42,7 @@ namespace EmulationToolbox.Services.Library
                 }
             });
 
-            UI.UIService.showMessage(renamedCount + " Games names changed");
+            UI.UIService.showMessage(renamedCount + " Games where merged");
         }
     }
 }
