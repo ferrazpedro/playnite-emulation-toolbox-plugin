@@ -6,3 +6,9 @@ Packages:
     PackageUrl: https://github.com/ferrazpedro/playnite-emulation-toolbox-plugin/releases/download/1.0/EmulationToolbox_eb3ccf5d-971a-41a6-aefd-aae9455e6de4_1_0.pext
     Changelog:
       - Initial Release
+  - Version: 1.1
+    RequiredApiVersion: 6.2.1
+    ReleaseDate: 2022-10-01
+    PackageUrl: https://github.com/ferrazpedro/playnite-emulation-toolbox-plugin/releases/download/1.1/EmulationToolbox_eb3ccf5d-971a-41a6-aefd-aae9455e6de4_1_1.pext
+    Changelog:
+      - Adding the feature to merge games and fixed some bugs
