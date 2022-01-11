@@ -29,6 +29,9 @@ namespace EmulationToolbox.Services.Library
                     if (game.Roms.Any())
                     {
                         renameRoms(game);
+
+                        EmulationToolbox.playniteAPI.Database.Games.Update(game);
+
                         renamedCount++;
                     }
 
@@ -61,6 +64,9 @@ namespace EmulationToolbox.Services.Library
                     if (game.Roms.Any())
                     {
                         game.GameActions.FirstOrDefault().Name = game.Name;
+
+                        EmulationToolbox.playniteAPI.Database.Games.Update(game);
+
                         changedCount++;
                     }
 
@@ -85,6 +91,9 @@ namespace EmulationToolbox.Services.Library
                     if (game.Roms.Any())
                     {
                         game.Name = hyphensCleaner.Replace(game.Name, ": ");
+
+                        EmulationToolbox.playniteAPI.Database.Games.Update(game);
+
                         renamedCount++;
                     }
 

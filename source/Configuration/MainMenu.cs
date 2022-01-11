@@ -32,6 +32,12 @@ namespace EmulationToolbox.Configuration
 					Description = "Changes all hyphen (-) to colons (:) in the Selected Games names",
 					Action = (args) => EmulationTextChanges.changeHyphensToColon()
 				},
+				new MainMenuItem
+				{
+					MenuSection = "@" + EmulationToolbox.PluginName + "|Games",
+					Description = "Merge the associated ROMs of the Selected Games names",
+					Action = (args) => EmulationGameChanges.mergeEmulatedGames()
+				},
 			};
         }
     }

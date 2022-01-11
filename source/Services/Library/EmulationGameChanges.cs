@@ -30,7 +30,12 @@ namespace EmulationToolbox.Services.Library
                     {
                         if (game.Roms.Any())
                         {
-                            mergedGame.Roms.Concat(game.Roms);
+                            foreach (GameRom rom in game.Roms)
+                            {
+                                mergedGame.Roms.Add(rom);
+                            };
+
+                            EmulationToolbox.playniteAPI.Database.Games.Update(mergedGame);
 
                             EmulationToolbox.playniteAPI.Database.Games.Remove(game.Id);
 
