@@ -16,6 +16,7 @@ namespace EmulationToolbox.Services.Library
         private static readonly Regex extensionCleaner = new Regex(@"\.[^.]*$", RegexOptions.IgnoreCase | RegexOptions.Compiled);
         private static readonly Regex hyphensCleaner = new Regex(@" \- ", RegexOptions.IgnoreCase | RegexOptions.Compiled);
         private static readonly Regex theCleaner = new Regex(@", the", RegexOptions.IgnoreCase | RegexOptions.Compiled);
+        private static readonly Regex sortingTheCleaner = new Regex(@"^the ", RegexOptions.IgnoreCase | RegexOptions.Compiled);
 
         public static void cleanupRomNames(GameMenuItemActionArgs args)
         {
@@ -101,11 +102,11 @@ namespace EmulationToolbox.Services.Library
             UI.UIService.showMessage(renamedCount + " Games names changed");
         }
 
-        public static void chageTheToTheBeginning(GameMenuItemActionArgs args)
+        public static void moveTheToTheBeginning(GameMenuItemActionArgs args)
         {
             int processedCount = 0;
             int renamedCount = 0;
-            GlobalProgressResult progressResult = UI.UIService.showProgress("Changing all hyphens in Games names to colons", false, true, (progressAction) =>
+            GlobalProgressResult progressResult = UI.UIService.showProgress("Moving (The) to the beginning of the Games names", false, true, (progressAction) =>
             {
 
                 IEnumerable<Game> selectedGames = args.Games;
@@ -126,6 +127,33 @@ namespace EmulationToolbox.Services.Library
             });
 
             UI.UIService.showMessage(renamedCount + " Games names changed");
+        }
+
+        public static void removeTheFromSortingName(GameMenuItemActionArgs args)
+        {
+            int processedCount = 0;
+            int renamedCount = 0;
+            GlobalProgressResult progressResult = UI.UIService.showProgress("Removing (The) from the Games sorting names", false, true, (progressAction) =>
+            {
+
+                IEnumerable<Game> selectedGames = args.Games;
+
+                foreach (Game game in selectedGames)
+                {
+                    if (game.Roms.Any() && sortingTheCleaner.IsMatch(game.Name))
+                    {
+                        game.SortingName = sortingTheCleaner.Replace(game.Name, "");
+
+                        EmulationToolbox.playniteAPI.Database.Games.Update(game);
+
+                        renamedCount++;
+                    }
+
+                    processedCount++;
+                };
+            });
+
+            UI.UIService.showMessage(renamedCount + " Games sorting names changed");
         }
     }
 }

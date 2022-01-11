@@ -59,9 +59,6 @@
     <Compile Include="Services\Library\EmulationGameChanges.cs" />
     <Compile Include="Services\Library\EmulationTextChanges.cs" />
     <Compile Include="Services\UI\UIService.cs" />
-    <Compile Include="Views\EmulationProfileChangerView.xaml.cs">
-      <DependentUpon>EmulationProfileChangerView.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="extension.yaml">
@@ -71,10 +68,6 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="EmulationToolboxSettingsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\EmulationProfileChangerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

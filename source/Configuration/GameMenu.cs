@@ -36,7 +36,13 @@ namespace EmulationToolbox.Configuration
                 {
                     MenuSection = EmulationToolbox.PluginName + "|Text",
                     Description = "Move (The) to the beginning of the Selected Games names",
-                    Action = (args) => EmulationTextChanges.chageTheToTheBeginning(args)
+                    Action = (args) => EmulationTextChanges.moveTheToTheBeginning(args)
+                },
+                new GameMenuItem
+                {
+                    MenuSection = EmulationToolbox.PluginName + "|Text",
+                    Description = "Remove (The) from the Selected Games sorting names",
+                    Action = (args) => EmulationTextChanges.removeTheFromSortingName(args)
                 },
                 new GameMenuItem
                 {
