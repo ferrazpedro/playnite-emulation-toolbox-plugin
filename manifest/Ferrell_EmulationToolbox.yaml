@@ -24,3 +24,9 @@ Packages:
     PackageUrl: https://github.com/ferrazpedro/playnite-emulation-toolbox-plugin/releases/download/1.3/EmulationToolbox_eb3ccf5d-971a-41a6-aefd-aae9455e6de4_1_3.pext
     Changelog:
       - Adding the feature to add a sorting name to games that begins with "The" without it.
+    - Version: 1.3.1
+    RequiredApiVersion: 6.2.1
+    ReleaseDate: 2022-01-11
+    PackageUrl: https://github.com/ferrazpedro/playnite-emulation-toolbox-plugin/releases/download/1.3/EmulationToolbox_eb3ccf5d-971a-41a6-aefd-aae9455e6de4_1_3.pext
+    Changelog:
+      - Making the ROM name cleanup feature a little better for PS3 and WiiU.

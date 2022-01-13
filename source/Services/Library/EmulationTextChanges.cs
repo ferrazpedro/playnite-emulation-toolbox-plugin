@@ -14,6 +14,7 @@ namespace EmulationToolbox.Services.Library
     {
         private static readonly Regex nameCleaner = new Regex(@"^[^\(]+", RegexOptions.IgnoreCase | RegexOptions.Compiled);
         private static readonly Regex extensionCleaner = new Regex(@"\.[^.]*$", RegexOptions.IgnoreCase | RegexOptions.Compiled);
+        private static readonly Regex folderCleaner = new Regex(@"\\.*", RegexOptions.IgnoreCase | RegexOptions.Compiled);
         private static readonly Regex hyphensCleaner = new Regex(@" \- ", RegexOptions.IgnoreCase | RegexOptions.Compiled);
         private static readonly Regex theCleaner = new Regex(@", the", RegexOptions.IgnoreCase | RegexOptions.Compiled);
         private static readonly Regex sortingTheCleaner = new Regex(@"^the ", RegexOptions.IgnoreCase | RegexOptions.Compiled);
@@ -35,6 +36,7 @@ namespace EmulationToolbox.Services.Library
                         {
                             rom.Name = nameCleaner.Replace(rom.Path, "");
                             rom.Name = extensionCleaner.Replace(rom.Name, "");
+                            rom.Name = folderCleaner.Replace(rom.Name, "");
                         }
 
                         EmulationToolbox.playniteAPI.Database.Games.Update(game);
