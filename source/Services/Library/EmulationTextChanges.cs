@@ -37,6 +37,11 @@ namespace EmulationToolbox.Services.Library
                             rom.Name = nameCleaner.Replace(rom.Path, "");
                             rom.Name = extensionCleaner.Replace(rom.Name, "");
                             rom.Name = folderCleaner.Replace(rom.Name, "");
+
+                            if (rom.Name == "")
+                            {
+                                rom.Name = "Default";
+                            }
                         }
 
                         EmulationToolbox.playniteAPI.Database.Games.Update(game);
